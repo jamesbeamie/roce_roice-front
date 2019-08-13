@@ -3,12 +3,12 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import HomePage from './home/home';
 import AuthPage from '../containers/signUp';
 import LoginPage from '../containers/login';
-import Header from './common/header';
+import Header from '../common/header';
 import PageNotFound from './PageNotFound';
 
 const App = () => {
 	return (
-		<div className="container-fluid">
+		<div>
 			<Header />
 			<Switch>
 				<Redirect from="/" to="/home" exact />
