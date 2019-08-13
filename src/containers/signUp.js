@@ -37,7 +37,7 @@ class AuthPage extends Component {
 		};
 
 		// acces api
-		fetch(' https://royalframes-photography.herokuapp.com/photography', {
+		fetch('https://royalframes-photography.herokuapp.com/photography', {
 			method: 'POST',
 			body: JSON.stringify(requestBody),
 			headers: {
