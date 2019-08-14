@@ -44,6 +44,8 @@ class App extends Component {
 					<Header />
 					<Switch>
 						<Redirect from="/" to="/home" exact />
+						{token && <Redirect from="/reg" to="/home" exact />}
+						{token && <Redirect from="/sigin" to="/home" exact />}
 						<Route path="/home" component={HomePage} exact />
 						{!token && <Route path="/reg" component={AuthPage} />}
 						{!token && <Route path="/sigin" component={LoginPage} />}
