@@ -1,33 +1,58 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import loginContext from './loginContext';
 import '../assets/styles/navbar.css';
-
 const Header = () => {
 	return (
-		<header className="navigation-bar">
-			<div className="navigation-bar_logo">
-				<a href="/">
-					<i>Royalframes</i>
-				</a>
-			</div>
-			<nav className="navigation-bar_links">
-				<ul>
-					<li>
-						<NavLink to="/" exact>
-							Wedding
-						</NavLink>
-						{' | '}
-						<NavLink to="/homes" exact>
-							Fashion
-						</NavLink>
-						{' | '}
-						<NavLink to="/bookings" exact>
-							Blog
-						</NavLink>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<loginContext.Consumer>
+			{(context) => {
+				return (
+					<header className="navigation-bar">
+						<div className="navigation-bar_logo">
+							<a href="/">
+								<h4>
+									<i>RoyalFrames</i>
+								</h4>
+							</a>
+						</div>
+						<nav className="navigation-bar_links">
+							<ul>
+								<li />
+								<NavLink to="/about" exact>
+									About
+								</NavLink>
+								{' | '}
+								<NavLink to="/about" exact>
+									Wedding
+								</NavLink>
+								{' | '}
+								<NavLink to="/about" exact>
+									Fashion
+								</NavLink>
+								{' | '}
+								<NavLink to="/about" exact>
+									Potraits
+								</NavLink>
+								{' | '}
+								<NavLink to="/about" exact>
+									Family
+								</NavLink>
+								{' | '}
+								<NavLink to="/about" exact>
+									Blog
+								</NavLink>
+								{' | '}
+								{context.token && (
+									<NavLink to="/about" exact>
+										Create
+									</NavLink>
+								)}
+							</ul>
+						</nav>
+					</header>
+				);
+			}}
+		</loginContext.Consumer>
 	);
 };
 
