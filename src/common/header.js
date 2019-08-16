@@ -43,7 +43,7 @@ const Header = () => {
 									</NavLink>
 									{' | '}
 									{context.token && (
-										<NavLink to="/about" exact>
+										<NavLink to="/photography/blog" exact>
 											Create
 										</NavLink>
 									)}
