@@ -5,7 +5,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './components/App';
-import './index.css';
+// import './index.css';
 
 const client = new ApolloClient({
 	uri: 'https://royalframes-photography.herokuapp.com/photography'
