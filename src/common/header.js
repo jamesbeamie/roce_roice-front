@@ -17,35 +17,41 @@ const Header = () => {
 						</div>
 						<nav className="navigation-bar_links">
 							<ul>
-								<li />
-								<NavLink to="/about" exact>
-									About
-								</NavLink>
-								{' | '}
-								<NavLink to="/about" exact>
-									Wedding
-								</NavLink>
-								{' | '}
-								<NavLink to="/about" exact>
-									Fashion
-								</NavLink>
-								{' | '}
-								<NavLink to="/about" exact>
-									Potraits
-								</NavLink>
-								{' | '}
-								<NavLink to="/about" exact>
-									Family
-								</NavLink>
-								{' | '}
-								<NavLink to="/about" exact>
-									Blog
-								</NavLink>
-								{' | '}
-								{context.token && (
+								<li>
 									<NavLink to="/about" exact>
-										Create
+										About
 									</NavLink>
+									{' | '}
+									<NavLink to="/about" exact>
+										Wedding
+									</NavLink>
+									{' | '}
+									<NavLink to="/about" exact>
+										Fashion
+									</NavLink>
+									{' | '}
+									<NavLink to="/about" exact>
+										Potraits
+									</NavLink>
+									{' | '}
+									<NavLink to="/about" exact>
+										Family
+									</NavLink>
+									{' | '}
+									<NavLink to="/about" exact>
+										Blog
+									</NavLink>
+									{' | '}
+									{context.token && (
+										<NavLink to="/about" exact>
+											Create
+										</NavLink>
+									)}
+								</li>
+								{context.token && (
+									<li>
+										<button onClick={context.logout}>logout</button>
+									</li>
 								)}
 							</ul>
 						</nav>

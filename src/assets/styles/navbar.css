@@ -34,3 +34,23 @@ body {
 .navigation-bar_links a.active {
 	color: white;
 }
+.navigation-bar_links button {
+	color: white;
+	background-color: rgb(98, 199, 98);
+	font: inherit;
+	border: 1px solid rgb(4, 68, 4);
+	border-radius: 3px;
+	margin-right: 1rem;
+	box-shadow: 3px 3px 5px rgb(3, 83, 88);
+	cursor: pointer;
+}
+.navigation-bar_links button:hover,
+.navigation-bar_links button:active {
+	color: grey;
+	background-color: rgb(98, 199, 98);
+	font: inherit;
+	border: 1px solid rgb(4, 68, 4);
+	border-radius: 3px;
+	margin-right: 1rem;
+	box-shadow: 1px 1px 5px rgb(3, 83, 88);
+}
