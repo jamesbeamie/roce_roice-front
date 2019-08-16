@@ -10,22 +10,19 @@ import loginContext from '../common/loginContext';
 class App extends Component {
 	state = {
 		token: null,
-		userId: null,
-		tokenExpires: 0
+		userId: null
 	};
 
-	login = (token, userId, tokenExpires) => {
+	login = (token, userId) => {
 		this.setState({
 			token: token,
-			userId: userId,
-			tokenExpires: tokenExpires
+			userId: userId
 		});
 	};
 	logout = () => {
 		this.setState({
 			token: null,
-			userId: null,
-			tokenExpires: 0.00001
+			userId: null
 		});
 	};
 
