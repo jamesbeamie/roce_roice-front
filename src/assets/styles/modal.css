@@ -4,6 +4,8 @@
 	position: fixed;
 	top: 20vh;
 	left: 5%;
+	color: white;
+	z-index: 100;
 }
 .modal_header {
 	padding: 1rem;
