@@ -13,6 +13,7 @@ const BlogList = (props) => {
 				title={blog.title}
                 description={blog.description}
                 tag={blog.tag}
+                specificBlog={props.blogDetails}
 			/>
 		);
 	});

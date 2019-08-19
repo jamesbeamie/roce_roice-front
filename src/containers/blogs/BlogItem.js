@@ -12,7 +12,9 @@ const BlogItem = (props) => (
 		<div>
 			<React.Fragment>
 				<p>owner</p>
-				<button className="btn">View home</button>
+				<button className="btn" onClick={props.specificBlog.bind(this, props.blogId)}>
+					read
+				</button>
 			</React.Fragment>
 		</div>
 	</li>
