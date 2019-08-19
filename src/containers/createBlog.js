@@ -11,7 +11,8 @@ class CreateBlog extends Component {
 	state = {
 		creating: false,
 		blogArray: [],
-		isLoading: false
+		isLoading: false,
+		specificBlog: null
 	};
 
 	constructor(props) {
@@ -36,7 +37,15 @@ class CreateBlog extends Component {
 
 	handleCancel = () => {
 		this.setState({
-			creating: false
+			creating: false,
+			specificBlog: null
+		});
+	};
+
+	showBlogDetails = (blogId) => {
+		this.setState((prevState) => {
+			const selectedBlog = prevState.blogArray.find((blog) => blog._id === blogId);
+			return { specificBlog: selectedBlog };
 		});
 	};
 
@@ -151,10 +160,10 @@ class CreateBlog extends Component {
 	};
 
 	render() {
-		const { creating, blogArray, isLoading } = this.state;
+		const { creating, blogArray, isLoading, specificBlog } = this.state;
 		return (
 			<React.Fragment>
-				{creating && <Backdrop />}
+				{(creating || specificBlog) && <Backdrop />}
 				{creating && (
 					<Modal
 						title="Add blog"
@@ -162,6 +171,7 @@ class CreateBlog extends Component {
 						canConfirm
 						onCancel={this.handleCancel}
 						onConfirm={this.handleConfirm}
+						confirmText="Post"
 					>
 						<form>
 							<div className="form-control">
@@ -179,11 +189,25 @@ class CreateBlog extends Component {
 						</form>
 					</Modal>
 				)}
+				{specificBlog && (
+					<Modal
+						title={specificBlog.title}
+						canCancel
+						canConfirm
+						onCancel={this.handleCancel}
+						onConfirm={this.handleConfirm}
+						confirmText=""
+					>
+						<h4>title: {specificBlog.title}</h4>
+						<p>Description: {specificBlog.description}</p>
+						<h4>tag: {specificBlog.tag}</h4>
+					</Modal>
+				)}
 				<div className="home-control">
 					<h4>Create Blog</h4>
 					<button onClick={this.handleCreateBlog}> Click to create</button>
 				</div>
-				{isLoading ? <Spinner /> : <BlogList blogs={blogArray} />}
+				{isLoading ? <Spinner /> : <BlogList blogs={blogArray} blogDetails={this.showBlogDetails} />}
 			</React.Fragment>
 		);
 	}
