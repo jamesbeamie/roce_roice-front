@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../assets/styles/blogModal.css';
+import '../assets/styles/blog.css';
 import Modal from '../common/modal';
 import Backdrop from '../common/backdrop';
 import BlogList from './blogs/BlogList';

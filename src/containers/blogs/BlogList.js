@@ -10,8 +10,8 @@ const BlogList = (props) => {
 			<BlogItem
 				key={blog._id}
 				blogId={blog._id}
-				title={blog.name}
-                description={blog.price}
+				title={blog.title}
+                description={blog.description}
                 tag={blog.tag}
 			/>
 		);
