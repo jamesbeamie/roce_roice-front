@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import '../assets/styles/index.css';
 import '../assets/styles/modal.css';

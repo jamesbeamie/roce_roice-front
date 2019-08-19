@@ -48,7 +48,7 @@ class App extends Component {
 						<Route path="/home" component={HomePage} exact />
 						{token && <Route path="/photography/blog" component={CreateBlog} exact />}
 						{!token && <Route path="/reg" component={AuthPage} />}
-						{!token && <Route path="/sigin" component={LoginPage} />}
+						{!token && <Route path="/signin" component={LoginPage} />}
 						<Route component={PageNotFound} />
 					</Switch>
 				</div>
