@@ -42,6 +42,10 @@ const Header = () => {
 										Blog
 									</NavLink>
 									{' | '}
+									<NavLink to="/images" exact>
+										Images
+									</NavLink>
+									{' | '}
 									{context.token && (
 										<NavLink to="/photography/blog" exact>
 											Create
