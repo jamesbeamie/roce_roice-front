@@ -206,6 +206,7 @@ class CreateBlog extends Component {
 				<div className="home-control">
 					<h4>Create Blog</h4>
 					<button onClick={this.handleCreateBlog}> Click to create</button>
+					<a href="/img/upload">Upload image</a>
 				</div>
 				{isLoading ? <Spinner /> : <BlogList blogs={blogArray} blogDetails={this.showBlogDetails} />}
 			</React.Fragment>

@@ -19,8 +19,8 @@ const Champion = ({ data: { loading, getChampion } }) => {
 };
 
 const getChampionQuery = gql`
-	query($id: Int!) {
-		getChampion(id: $id) {
+	query($id: ID!) {
+		getChampion(_id: $id) {
 			tag
 			imgName
 			publicId

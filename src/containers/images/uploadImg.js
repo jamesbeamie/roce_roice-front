@@ -12,18 +12,21 @@ class UploadImage extends React.Component {
 	};
 
 	onDrop = async (files) => {
-		this.this.setState({ file: files[0] });
+		this.setState({ file: files[0] });
 	};
 
-	onChange = (e) => {
+	onChange = (event) => {
+        console.log('input',event.target.value )
 		this.setState({
-			[e.target.tag]: e.target.value,
-			[e.target.imgName]: e.target.value
+			tag: event.target.value,
+            imgName: event.target.value,
+            file: event.target.value
 		});
 	};
 
 	submit = async () => {
-		const { tag, imgName, file } = this.state;
+        const { tag, imgName, file } = this.state;
+        console.log('filedata,',tag, imgName, file )
 
 		const formData = new formData();
 		formData.append('file', file);
@@ -48,14 +51,23 @@ class UploadImage extends React.Component {
 	render() {
 		const { tag, imgName } = this.state;
 		return (
-			<div>
-				<input name="tag" onChange={this.onChange} value={tag} />
-				<input name="imgName" onChange={this.onChange} value={imgName} />
-				<Dropzone onDrop={this.onDrop}>
-					<p>Click to upload file, or drap a file and drop here.</p>
-				</Dropzone>
-				<button onClick={this.submit}>Upload</button>
-			</div>
+            <form className="auth-form">
+				<div className="form-control">
+					<label htmlFor="tag">tag:</label>
+					<input type="text" id="tag" onChange={this.onChange}/>
+				</div>
+				<div className="form-control">
+					<label htmlFor="imgName">imgName:</label>
+					<input type="text" id="imgName" onChange={this.onChange}/>
+                </div>
+                <div className="form-control">
+					<label htmlFor="imgFile">imgFile:</label>
+					<input type="file" id="imgFile" onChange={this.onChange}/>
+				</div>
+				<div className="form-actions">
+					<button onClick={this.submit}>Upload</button>
+				</div>
+			</form>
 		);
 	}
 }
@@ -63,7 +75,7 @@ class UploadImage extends React.Component {
 const CreateChampionMutation = gql`
 	mutation($tag: String!, $imgName: String!, $publicId: String!) {
 		creatChampion(tag: $tag, imgName: $imgName, publicId: $publicId) {
-			id
+			_id
 		}
 	}
 `;
