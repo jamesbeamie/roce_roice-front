@@ -1,13 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 import App from './components/App';
-import './index.css';
+// import './index.css';
+
+const client = new ApolloClient({
+	uri: 'https://royalframes-photography.herokuapp.com/photography'
+});
 
 render(
-	<Router>
-		<App />
-	</Router>,
+	<ApolloProvider client={client}>
+		<Router>
+			<App />
+		</Router>
+	</ApolloProvider>,
 	document.getElementById('app')
 );
